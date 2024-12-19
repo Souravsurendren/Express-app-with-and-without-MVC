@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+        }
+
+        /* Form styling */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #111;
+            border: 1px solid #444;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+        }
+
+        form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #fff;
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #000;
+            color: #fff;
+        }
+
+        form input::placeholder {
+            color: #888;
+        }
+
+        form button {
+            background: #444;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #666;
+        }
+
+        /* List styling */
+        ul {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            background: #111;
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+
+        ul li strong {
+            color: #ddd;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #444;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Details Application</h1>
+
+    <!-- Form to add student -->
+    <form action="/add-student" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter student name" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter age" required>
+
+        <label for="rollNo">Roll No:</label>
+        <input type="text" id="rollNo" name="rollNo" placeholder="Enter roll number" required>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" placeholder="Enter academic year" required>
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" placeholder="Enter course" required>
+
+        <label for="phoneNo">Phone Number:</label>
+        <input type="text" id="phoneNo" name="phoneNo" placeholder="Enter phone number" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <hr>
+
+    <!-- Display list of students -->
+    <h2>Student List:</h2>
+    <ul>
+        <% students.forEach(student => { %>
+            <li>
+                <strong>Name:</strong> <%= student.name %> |
+                <strong>DOB:</strong> <%= student.dob %> |
+                <strong>Age:</strong> <%= student.age %> |
+                <strong>Roll No:</strong> <%= student.rollNo %> |
+                <strong>Year:</strong> <%= student.year %> |
+                <strong>Course:</strong> <%= student.course %> |
+                <strong>Phone:</strong> <%= student.phoneNo %> |
+                <strong>Email:</strong> <%= student.email %>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
